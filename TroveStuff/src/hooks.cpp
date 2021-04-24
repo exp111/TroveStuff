@@ -1,20 +1,30 @@
 #include "hooks.h"
 #include <iostream>
+#include <intrin.h>
 
 decltype(Hooks::oRequest) Hooks::oRequest = nullptr;
 
 std::uintptr_t Hooks::RequestAddr = NULL;
-int base = 0;
 
-int __fastcall Hooks::hkRequest(int _this, void* xmlRequest, void* param2)
+int __fastcall Hooks::hkRequest(void* _this, void* edx, void* xmlRequest, void* param2)
 {
-	if (_this != (int)(base + 0xfa4f18))
-		return oRequest(_this, xmlRequest, param2); // we fail here
+	int returnAddress = (int)_ReturnAddress();
+	//if ((int)returnAddress != (int)(Offsets::moduleBase + 0x942429))
+	//if ((int)_this != *(int*)(Offsets::moduleBase + 0xfa4f18))
+	//	return oRequest(_this, xmlRequest, param2); // we fail here
 
-	std::cout << "Request: " << (char*)(xmlRequest);
+	
 	
 	auto result = oRequest(_this, xmlRequest, param2);
 
+	if (xmlRequest != 0 && (*(int*)xmlRequest) != 0)
+	{
+		Utils::ConsolePrint("%i", xmlRequest);
+		//std::string req = *(char**)(xmlRequest);
+		//Utils::ConsolePrintDirect(req.c_str());
+		//Utils::ConsolePrint("\n");
+	}
+	
 
 	return result;
 }
@@ -23,8 +33,8 @@ void Hooks::hook()
 {
 	//Hooks::PresentAddr = (std::uintptr_t)(Utils::PatternScan(GetModuleHandle("gameoverlayrenderer.dll"), Signatures::Present) + 2);
 	//Hooks::ResetAddr = (std::uintptr_t)(Utils::PatternScan(GetModuleHandle("gameoverlayrenderer.dll"), Signatures::Reset) + 2);
-	base = (int)GetModuleHandle(NULL);
-	Hooks::RequestAddr = (std::uintptr_t)(base + 0x9691a0);
+	
+	Hooks::RequestAddr = (std::uintptr_t)(Offsets::moduleBase + Offsets::RequestAddr);
 	// Init Detours
 	MH_Initialize();
 

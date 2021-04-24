@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
-#include "defs.h"
+//#include "defs.h"
 
 namespace Utils
 {
@@ -25,6 +25,7 @@ namespace Utils
 	void DetachConsole();
 
 	bool ConsolePrint(const char* fmt, ...);
+	bool ConsolePrintDirect(const char* str);
 
 	/*
 	* @brief Blocks execution until a key is pressed on the console window
@@ -46,5 +47,5 @@ namespace Utils
 	const char* GetFullTimeDayString();
 	double GetEpochTime();
 
-	Color GetRainbowColor(float speed = 0.001f);
+	//Color GetRainbowColor(float speed = 0.001f);
 }

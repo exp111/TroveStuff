@@ -12,6 +12,9 @@
     <Filter Include="include\minhook">
       <UniqueIdentifier>{4f53cc26-ceac-4c1b-a27d-16df67f6ba2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\helpers">
+      <UniqueIdentifier>{b8c109b5-ed45-4b30-bd1e-a2c4b0efe11f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -34,6 +37,12 @@
     </ClCompile>
     <ClCompile Include="include\minhook\buffer.c">
       <Filter>include\minhook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\helpers\utils.cpp">
+      <Filter>src\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="include\offsets.cpp">
+      <Filter>include</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +75,12 @@
     </ClInclude>
     <ClInclude Include="src\main.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\helpers\utils.h">
+      <Filter>src\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\offsets.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

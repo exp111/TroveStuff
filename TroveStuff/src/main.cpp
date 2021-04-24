@@ -5,9 +5,9 @@ bool g_Unload = false;
 
 DWORD WINAPI onDllAttach(LPVOID base)
 {
-	//Utils::AttachConsole();
+	Utils::AttachConsole();
 
-	//Offsets::Init();
+	Offsets::Init();
 	Hooks::hook();
 	
 	while (!g_Unload)

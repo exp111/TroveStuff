@@ -146,6 +146,8 @@
     <ClCompile Include="include\minhook\hde\hde64.c" />
     <ClCompile Include="include\minhook\hook.c" />
     <ClCompile Include="include\minhook\trampoline.c" />
+    <ClCompile Include="include\offsets.cpp" />
+    <ClCompile Include="src\helpers\utils.cpp" />
     <ClCompile Include="src\hooks.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -158,6 +160,8 @@
     <ClInclude Include="include\minhook\hde\table64.h" />
     <ClInclude Include="include\minhook\minhook.h" />
     <ClInclude Include="include\minhook\trampoline.h" />
+    <ClInclude Include="include\offsets.h" />
+    <ClInclude Include="src\helpers\utils.h" />
     <ClInclude Include="src\hooks.h" />
     <ClInclude Include="src\main.h" />
   </ItemGroup>
